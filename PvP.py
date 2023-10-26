@@ -44,14 +44,14 @@ def update():
     #update xe tăng 1
     tank1.move('a', 'd', 'w', 's', bg.wall_list)    #di chuyển
     tank1.add_bullet('bulletblue2', 'q')            #nạp đạn
-    tank1.set_bullet(2)                             #bắn đạn(tốc độ đạn)
+    tank1.set_bullet(4)                             #bắn đạn(tốc độ đạn)
     tank1.bullet_wall(bg.wall_list)                 #check bắn vào tường
     tank1.bullet_PvP(tank2, status1)                #check bắn trúng người chơi thứ 2
     
     #update xe tăng 2
     tank2.move('left', 'right', 'up', 'down', bg.wall_list)
     tank2.add_bullet('bulletred2', 'l')
-    tank2.set_bullet(2)
+    tank2.set_bullet(4)
     tank2.bullet_wall(bg.wall_list)
     tank2.bullet_PvP(tank1, status2)
 

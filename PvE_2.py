@@ -46,11 +46,12 @@ def draw():
             w_expl.draw(screen, clock)
         for e_expl in tank.explosion_enemy_list:    #vụ nổ khi người vắn vào máy
             e_expl.draw(screen, clock)
+        screen.draw.text('Level ' + str(lev.level), (10, 10), color = ((255, 255, 255)), fontsize = 40)  #in điểm số lên màn hình
 
 def update():
     tank.move('left', 'right', 'up', 'down', bg.wall_list)  #hàm di chuyển, tránh xuyên tường
     tank.add_bullet('bulletblue2', 'space')     #hàm nạp đạn, bắn bằng nút space
-    tank.set_bullet(2)      #tốc độ đạn, cho đạn bay
+    tank.set_bullet(4)      #tốc độ đạn, cho đạn bay
     tank.bullet_wall(bg.wall_list)      #bắn trúng tường
     tank.bullet_enemy(enemy_list)       #bắn trúng máy
 

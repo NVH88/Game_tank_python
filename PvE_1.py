@@ -42,7 +42,7 @@ def update():
     global enemy_list
     tank.move('left', 'right', 'up', 'down', bg.wall_list) #di chuyển xe tăng mình
     tank.add_bullet('bulletblue2', 'space') #nạp đạn(màu đạn, nút để bắn)
-    tank.set_bullet(2)  #tốc độ đạn bay
+    tank.set_bullet(4)  #tốc độ đạn bay
     tank.bullet_wall(bg.wall_list)  #đạn trúng tường
     tank.bullet_enemy(enemy_list)   #đạn trúng tank máy
 
@@ -53,7 +53,7 @@ def update():
             tank.explosion_enemy_list[0:1] = []
 
     for enemy in enemy_list:    #update tank máy
-        enemy.upd(bg.wall_list, tank, 2, 0, stt)
+        enemy.upd(bg.wall_list, tank, 3.5, 0, stt)
 
     while len(enemy_list) < 5:  #luôn để số tank máy là 5
         enemy_list.append(Tank_enemy.Tank_enemy('tank_red', random.randint(SIZE_TANK, WIDTH - SIZE_TANK), SIZE_TANK, 270))
