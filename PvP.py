@@ -4,6 +4,8 @@ import pgzrun
 import BackGround as BG
 import Tank_player
 import Status
+import subprocess
+import os
 import Explosion
 global screen, Rect, clock
 
@@ -19,11 +21,15 @@ tank2 = Tank_player.Tank_player('Player 2', 'tank_green', WIDTH - SIZE_TANK, SIZ
 
 def draw():
     if status1.player: #Người chơi thứ nhất thắng
-        screen.fill((0, 0, 0))
-        screen.draw.text('Player 1 win', ((200, 250)), color = ((255, 255, 255)), fontsize = 100)
+        # screen.fill((0, 0, 0))
+        # screen.draw.text('Player 1 win', ((200, 250)), color = ((255, 255, 255)), fontsize = 100)
+        subprocess.Popen(["python", "ENDPVP.py"])
+        os._exit(0)
     elif status2.player: #Người chơi thứ hai thắng
-        screen.fill((0, 0, 0))
-        screen.draw.text('Player 2 win', ((200, 250)), color = ((255, 255, 255)), fontsize = 100)
+        # screen.fill((0, 0, 0))
+        # screen.draw.text('Player 2 win', ((200, 250)), color = ((255, 255, 255)), fontsize = 100)
+        subprocess.Popen(["python", "ENDPVP.py"])
+        os._exit(0)
     else: #Tiếp tục vẽ
         bg.draw() #vẽ background
         for wall in bg.wall_list: #vẽ gạch

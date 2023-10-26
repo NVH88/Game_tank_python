@@ -6,8 +6,11 @@ import BackGround as BG
 import Tank_player
 import Tank_enemy
 import Status
+import subprocess
+import os
 from pgzero.actor import Actor
 global screen, Rect, clock
+
 
 HEIGHT, WIDTH = 600, 800
 SIZE_TANK = 25
@@ -23,8 +26,10 @@ def draw():
     global enemy_list
     if stt.loss:    #Nếu bị máy bắn trúng thì hết game
         enemy_list = [] #Xóa hết máy
-        screen.fill((0, 0, 0))
-        screen.draw.text('Loss', ((300, 250)), color = ((255, 255, 255)), fontsize = 100)   
+        # screen.fill((0, 0, 0))
+        # screen.draw.text('Loss', ((300, 250)), color = ((255, 255, 255)), fontsize = 100)   
+        subprocess.Popen(["python", "END_Training.py"])
+        os._exit(0)
     else:
         bg.draw() 
         tank.draw()             #vẽ xe tăng mình

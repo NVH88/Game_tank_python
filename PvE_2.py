@@ -7,6 +7,8 @@ import Tank_player
 import Tank_enemy
 import Status
 import Level
+import subprocess
+import os
 from pgzero.actor import Actor
 global screen, Rect, clock
 
@@ -17,7 +19,6 @@ stt = Status.Status()
 with open('level.txt', 'r') as file:
     L = int(file.read())
 
-print(L)
 lev = Level.Level(L)    #Set up level: level càng cao máy càng mạnh
 bg = BG.BackGround('grass', 'wall')  #background
 tank = Tank_player.Tank_player('p1', 'tank_blue', WIDTH / 2, HEIGHT - SIZE_TANK, 90)  
@@ -30,11 +31,11 @@ def draw():
     global enemy_list
     if stt.loss:    #màn hình khi thua
         enemy_list = []
-        screen.fill((0, 0, 0))
-        screen.draw.text('Loss', ((300, 250)), color = ((255, 255, 255)), fontsize = 100)   
+        subprocess.Popen(["python", "LOSE_PVE.py"])
+        os._exit(0)
     elif len(enemy_list) == 0:  #màn hình khi thắng
-        screen.fill((0, 0, 0))
-        screen.draw.text('Win', ((320, 250)), color = ((255, 255, 255)), fontsize = 100)  
+        subprocess.Popen(["python", "WIN_PVE.py"])
+        os._exit(0)
     else:   #vẽ liên tục
         bg.draw()   #vẽ background
         tank.draw() #vẽ tank người chơi
